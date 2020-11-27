@@ -24,7 +24,7 @@ alias gitsql='~/gitsql-tool/gitsql.sh'
 
 ### Configuration
 
-Edit file gitsql.sh, rename USER_LOGIN with login to database and USER_PASS with password to database
+Edit file ``gitsql.sh``, rename USER_LOGIN with login to database and USER_PASS with password to database
 ```bash
 USER_LOGIN="damian"
 USER_PASS="damian"
