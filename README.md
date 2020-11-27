@@ -14,7 +14,7 @@ Very simple, by run script ./gitsql.sh you get access to commands. Backup-s are 
 ```bash
 git clone git@github.com:damian-pm/gitsql.git
 ```
-You can move repo to /home dir and rename ``gitsql`` to ``.gitsql``
+You can move repo to /home dir and rename dir ``gitsql/`` to ``.gitsql`` (optional)
 
 ### Configuration
 
@@ -27,7 +27,7 @@ USER_PASS="damian"
 ...
 ```
 
-#### Create alias
+#### Create alias (Optional)
 
 For example in .bash_aliases
 
