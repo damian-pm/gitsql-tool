@@ -7,6 +7,7 @@ USER_PASS="damian"
 PORT=3306
 HOST=localhost
 #####################################################
+DIR_PATH="`dirname \"$0\"`"
 
 type=$1
 
@@ -32,7 +33,7 @@ then
     fi
 
     echo 'exporting, please wait ...'
-    mysqldump -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME > "db/"$DB_TEMP_NAME".sql"
+    mysqldump -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME > $DIR_PATH"/"$DB_TEMP_NAME".sql"
     echo '* Export success *'
 
 elif [ "import" == "$type"  ]
@@ -55,7 +56,7 @@ then
     fi
 
     echo 'importing, please wait ...'
-    mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME < "db/"$DB_SUB_NAME".sql"
+    mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME < $DIR_PATH"/"$DB_SUB_NAME".sql"
     echo '* Import success *'
 elif [ "list" == "$type"  ]
 then
