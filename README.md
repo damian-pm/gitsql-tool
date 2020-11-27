@@ -16,6 +16,17 @@ git clone git@github.com:damian-pm/gitsql.git
 ```
 and you can move repo to /home dir and rename .gitsql
 
+### Configuration
+
+Edit file gitsql.sh, rename USER_LOGIN with logi to database and USER_PASS with password to database
+```bash
+#!/bin/bash
+
+USER_LOGIN="damian"
+USER_PASS="damian"
+...
+```
+
 #### Create alias
 
 For example in .bash_aliases
