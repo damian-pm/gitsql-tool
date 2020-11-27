@@ -6,9 +6,17 @@ USER_LOGIN="damian"
 USER_PASS="damian"
 PORT=3306
 HOST=localhost
-#####################################################
-DIR_PATH="`dirname \"$0\"`"
 
+# for Linux
+PATH_MYSQL="mysql" 
+PATH_MYSQL_DUMP="mysqldump"
+
+# for Windows
+# PATH_MYSQL="mysql.exe" 
+# PATH_MYSQL_DUMP="mysqldump.exe"
+#####################################################
+
+DIR_PATH="`dirname \"$0\"`"
 type=$1
 
 if [ "export" == "$type"  ]
@@ -33,7 +41,7 @@ then
     fi
 
     echo 'exporting, please wait ...'
-    mysqldump -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME > $DIR_PATH"/db/"$DB_TEMP_NAME".sql"
+    $PATH_MYSQL_DUMP -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME > $DIR_PATH"/db/"$DB_TEMP_NAME".sql"
     echo '* Export success *'
 
 elif [ "import" == "$type"  ]
@@ -56,7 +64,7 @@ then
     fi
 
     echo 'importing, please wait ...'
-    mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME < $DIR_PATH"/db/"$DB_SUB_NAME".sql"
+    $PATH_MYSQL -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME < $DIR_PATH"/db/"$DB_SUB_NAME".sql"
     echo '* Import success *'
 elif [ "list" == "$type"  ]
 then
@@ -65,7 +73,7 @@ then
     then
         echo '* Available databases        *'
         echo '******************************'
-        mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS $DB_NAME --execute="show databases;"
+        $PATH_MYSQL -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS $DB_NAME --execute="show databases;"
     elif [ "zip" == "$TYPE_LIST" ]
     then
         echo '* Available backup databases zip*'
