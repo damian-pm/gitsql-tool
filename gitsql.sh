@@ -66,6 +66,11 @@ then
         echo '* Available databases        *'
         echo '******************************'
         mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS $DB_NAME --execute="show databases;"
+    elif [ "zip" == "$TYPE_LIST" ]
+    then
+        echo '* Available backup databases zip*'
+        echo '******************************'
+        ls -Ss1pqh $DIR_PATH"/db_zip"
     else
         echo '* Available backup databases *'
         echo '******************************'
@@ -82,8 +87,31 @@ then
         echo 'Failed remove backup, write please available backup name from "gitsql list"' 
         exit
     fi
-    rm -rf "db/"$DB_NAME".sql"
+    rm -rf $DIR_PATH"/db/"$DB_NAME".sql"
     echo '* Backup '$DB_NAME" removed"
+elif [ "zip" == "$type"  ]
+then
+    DB_SUB_NAME=$2
+    echo '******************************'
+    if [ -z "$DB_SUB_NAME" ]
+    then 
+        echo 'Failed zip backup, write please available backup name from "gitsql list"' 
+        exit
+    fi
+    zip -j $DIR_PATH"/db_zip/"$DB_SUB_NAME".zip" $DIR_PATH"/db/"$DB_SUB_NAME".sql"
+    echo 'File zip success - PATH:'$DIR_PATH"/db_zip/"$DB_SUB_NAME".zip"
+elif [ "unzip" == "$type"  ]
+then
+    DB_SUB_NAME=$2
+    echo '******************************'
+    if [ -z "$DB_SUB_NAME" ]
+    then 
+        echo 'Failed zip backup, write please available backup name from "gitsql list"' 
+        exit
+    fi
+    echo $DIR_PATH"/db"
+    unzip $DIR_PATH"/db_zip/"$DB_SUB_NAME".zip"  -d  $DIR_PATH"/db"
+    echo 'File unzip success - PATH:'$DIR_PATH"/db/"
 else 
     echo '*************************'
     echo '* GitSQL 1.0            *'
@@ -92,7 +120,11 @@ else
     echo '*'
     echo '* gitsql list [get list of backups]'
     echo '* gitsql list db [get list of databases]'
+    echo '*'
     echo '* gitsql import db_sub_name [if db_name not specifed, db_sub_name will be db_name ] db_name [optional] '
     echo '* gitsql export db_name db_sub_name [optional] '
+    echo '*'
+    echo '* gitsql zip db_name [zip file to db_zip/ if exists will replace]'
+    echo '* gitsql unzip db_name [unzip file to db/ if exist will replace] '
     echo '*************************'
 fi

@@ -33,3 +33,16 @@ For example in .bash_aliases
 ```bash
 alias gitsql='~/.gitsql/gitsql.sh' 
 ```
+
+### Available commands
+
+```bash
+gitsql list [get list of backups]
+gitsql list db [get list of databases]
+
+gitsql import db_sub_name [if db_name not specifed, db_sub_name will be db_name ] db_name [optional] 
+gitsql export db_name db_sub_name [optional] 
+
+gitsql zip db_name [zip file to db_zip/ if exists will replace]
+gitsql unzip db_name [unzip file to db/ if exist will replace]
+```
