@@ -12,7 +12,7 @@ Very simple, by run script ./gitsql.sh you get access to commands. Backup-s are 
 Clone repo
 
 ```bash
-git clone git@github.com:damian-pm/gitsql.git
+git clone git@github.com:damian-pm/gitsql-tool.git
 ```
 and thats all, now you can run script ``./gitsql-tool/gitsql.sh``
 
