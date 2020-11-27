@@ -1,7 +1,12 @@
 #!/bin/bash
 
+####################################################
+# DATABASE CONFIGURATION
 USER_LOGIN="damian"
 USER_PASS="damian"
+PORT=3306
+HOST=localhost
+#####################################################
 
 type=$1
 
@@ -15,7 +20,7 @@ then
 
     if [ -z "$DB_NAME" ]
     then 
-        echo 'Fail command --- example: gitsql export db_name db_sub_name'  
+        echo 'Fail command'  
         exit
     fi
 
@@ -27,7 +32,7 @@ then
     fi
 
     echo 'exporting, please wait ...'
-    mysqldump -u $USER_LOGIN --password=$USER_PASS  $DB_NAME > "db/"$DB_TEMP_NAME".sql"
+    mysqldump -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME > "db/"$DB_TEMP_NAME".sql"
     echo '* Export success *'
 
 elif [ "import" == "$type"  ]
@@ -40,7 +45,7 @@ then
 
     if [ -z "$DB_SUB_NAME" ]
     then 
-        echo 'Fail command --- example: gitsql import db_sub_name db_name ' 
+        echo 'Fail command' 
         exit
     fi
 
@@ -50,7 +55,7 @@ then
     fi
 
     echo 'importing, please wait ...'
-    mysql -u $USER_LOGIN --password=$USER_PASS  $DB_NAME < "db/"$DB_SUB_NAME".sql"
+    mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME < "db/"$DB_SUB_NAME".sql"
     echo '* Import success *'
 elif [ "list" == "$type"  ]
 then
@@ -59,7 +64,7 @@ then
     then
         echo '* Available databases        *'
         echo '******************************'
-        mysql -u $USER_LOGIN --password=$USER_PASS $DB_NAME --execute="show databases;"
+        mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS $DB_NAME --execute="show databases;"
     else
         echo '* Available backup databases *'
         echo '******************************'
