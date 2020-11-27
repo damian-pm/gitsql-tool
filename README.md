@@ -1,4 +1,4 @@
-# gitsql tool 1.0.2
+# gitsql tool v1.0.2 (MySQL)
 
 Backup database MySQL from command line (LINUX)
 

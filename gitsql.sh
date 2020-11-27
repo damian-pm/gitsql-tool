@@ -126,9 +126,9 @@ then
     unzip $DIR_PATH"/db_zip/"$DB_SUB_NAME".zip"  -d  $DIR_PATH"/db"
     echo 'File unzip success - PATH:'$DIR_PATH"/db/"
 else 
-    echo '*************************'
-    echo '* GitSQL Tool 1.0.2     *'
-    echo '*************************'
+    echo '************************************'
+    echo '* GitSQL Tool v1.0.2 (MySQL)        *'
+    echo '************************************'
     echo '* Methods:'
     echo '*'
     echo '* gitsql list [get list of backups]'
