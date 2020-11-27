@@ -18,7 +18,7 @@ and you can move repo to /home dir and rename .gitsql
 
 ### Configuration
 
-Edit file gitsql.sh, rename USER_LOGIN with logi to database and USER_PASS with password to database
+Edit file gitsql.sh, rename USER_LOGIN with login to database and USER_PASS with password to database
 ```bash
 #!/bin/bash
 
