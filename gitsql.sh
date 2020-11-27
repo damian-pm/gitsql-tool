@@ -114,7 +114,7 @@ then
     echo 'File unzip success - PATH:'$DIR_PATH"/db/"
 else 
     echo '*************************'
-    echo '* GitSQL 1.0            *'
+    echo '* GitSQL Tool 1.0.2     *'
     echo '*************************'
     echo '* Methods:'
     echo '*'
