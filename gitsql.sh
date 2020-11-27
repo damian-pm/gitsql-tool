@@ -33,7 +33,7 @@ then
     fi
 
     echo 'exporting, please wait ...'
-    mysqldump -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME > $DIR_PATH"/"$DB_TEMP_NAME".sql"
+    mysqldump -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME > $DIR_PATH"/db/"$DB_TEMP_NAME".sql"
     echo '* Export success *'
 
 elif [ "import" == "$type"  ]
@@ -56,7 +56,7 @@ then
     fi
 
     echo 'importing, please wait ...'
-    mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME < $DIR_PATH"/"$DB_SUB_NAME".sql"
+    mysql -u $USER_LOGIN --port=$PORT --host=$HOST --password=$USER_PASS  $DB_NAME < $DIR_PATH"/db/"$DB_SUB_NAME".sql"
     echo '* Import success *'
 elif [ "list" == "$type"  ]
 then
@@ -69,7 +69,7 @@ then
     else
         echo '* Available backup databases *'
         echo '******************************'
-        ls -Ss1pqh db/
+        ls -Ss1pqh $DIR_PATH"/db"
     fi
 
 elif [ "rm" == "$type"  ]
