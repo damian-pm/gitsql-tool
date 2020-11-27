@@ -1,11 +1,11 @@
-# gitsql 1.0
+# gitsql tool 1.0
 
 Backup database MySQL from command line (LINUX)
 
 ### How it work
 Very simple, by lanching script ./gitsql.sh you get access to commands. Backup-s are stored in the same directory gitsql/db
 
-[![screen](screen.png)
+![screen](screen.png)
 
 ### Install
 
