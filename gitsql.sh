@@ -89,6 +89,19 @@ then
     fi
     rm -rf $DIR_PATH"/db/"$DB_NAME".sql"
     echo '* Backup '$DB_NAME" removed"
+elif [ "rmzip" == "$type"  ]
+then
+    DB_NAME=$2
+    echo '* Removing backup zip        *'
+    echo '******************************'
+    if [ -z "$DB_NAME" ]
+    then 
+        echo 'Failed remove backup zip, write please available backup name from "gitsql list zip"' 
+        exit
+    fi
+    rm -rf $DIR_PATH"/db_zip/"$DB_NAME".zip"
+    echo '* Backup zip '$DB_NAME" removed"
+
 elif [ "zip" == "$type"  ]
 then
     DB_SUB_NAME=$2
@@ -120,6 +133,10 @@ else
     echo '*'
     echo '* gitsql list [get list of backups]'
     echo '* gitsql list db [get list of databases]'
+    echo '* gitsql list zip [get list of db compresed zip]'
+    echo '*'
+    echo '* gitsql rm ps-1 [remove backup by name in db/]'
+    echo '* gitsql rmzip ps-1 [remove backup bzip y name in db_zip/]'
     echo '*'
     echo '* gitsql import db_sub_name [if db_name not specifed, db_sub_name will be db_name ] db_name [optional] '
     echo '* gitsql export db_name db_sub_name [optional] '

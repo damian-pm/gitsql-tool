@@ -37,6 +37,10 @@ HOST=localhost
 ```bash
 gitsql list [get list of backups]
 gitsql list db [get list of databases]
+gitsql list zip [get list of db compresed zip]
+
+gitsql rm ps-1 [remove backup by name in db/]
+gitsql rmzip ps-1 [remove backup zip by name in db_zip/]
 
 gitsql import db_sub_name [if db_name not specifed, db_sub_name will be db_name ] db_name [optional] 
 gitsql export db_name db_sub_name [optional] 
