@@ -1,4 +1,4 @@
-# gitsql tool v1.0.2 (MySQL)
+# gitsql tool v1.0.3 (MySQL)
 
 Backup database MySQL from command line (LINUX)
 
@@ -30,6 +30,14 @@ USER_LOGIN="damian"
 USER_PASS="damian"
 PORT=3306
 HOST=localhost
+
+# for Linux
+PATH_MYSQL="mysql" 
+PATH_MYSQL_DUMP="mysqldump"
+
+# for Windows
+# PATH_MYSQL="mysql.exe" 
+# PATH_MYSQL_DUMP="mysqldump.exe"
 ```
 
 ### Available commands
