@@ -9,12 +9,14 @@ Very simple, by run script ./gitsql.sh you get access to commands. Backup-s are 
 
 ### Install
 
-#### Clone repo
+Clone repo
 
 ```bash
-git clone git@github.com:damian-pm/gitsql.git
+git clone git@github.com:damian-pm/gitsql-tool.git
 ```
-(Optional)
+and thats all, now you can run script ``./gitsql-tool/gitsql.sh``
+
+#### (Optional) Make alias
 You can move repo to /home dir and create alias
 For example in .bash_aliases
 
@@ -24,7 +26,7 @@ alias gitsql='~/gitsql-tool/gitsql.sh'
 
 ### Configuration
 
-Edit file gitsql.sh, rename USER_LOGIN with login to database and USER_PASS with password to database
+Edit file ``gitsql.sh``, rename USER_LOGIN with login to database and USER_PASS with password to database
 ```bash
 USER_LOGIN="damian"
 USER_PASS="damian"
